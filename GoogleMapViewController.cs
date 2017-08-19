@@ -4,7 +4,7 @@ using UIKit;
 
 namespace PikkartGoogleMaps
 {
-    class MapViewController : UIViewController
+    public class GoogleMapViewController : UIViewController
     {
         public override void ViewDidLoad()
         {

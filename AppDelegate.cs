@@ -20,7 +20,8 @@ namespace PikkartGoogleMaps
 
             Window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            Window.RootViewController = new MapViewController();
+            //Window.RootViewController = new GoogleMapViewController();
+            Window.RootViewController = new PikkartMapViewController();
 
             Window.MakeKeyAndVisible();
 
