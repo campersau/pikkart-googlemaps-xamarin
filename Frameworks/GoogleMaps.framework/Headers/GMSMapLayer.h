@@ -11,9 +11,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import <GoogleMaps/GMSCALayer.h>
+#import "GMSCALayer.h"
 
-NS_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN;
 
 /**
  * The following layer properties and constants describe the camera properties that may be animated
@@ -25,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
  *   mapView_.layer.cameraBearing = 20;
  *
  * An explicit animation, replacing the implicit animation, may be added after changing the
- * property, e.g.-
+ * property, for example:
+ * <pre>
  *   CAMediaTimingFunction *curve = [CAMediaTimingFunction functionWithName:
  *                                   kCAMediaTimingFunctionEaseInEaseOut];
  *   CABasicAnimation *animation =
@@ -34,44 +35,58 @@ NS_ASSUME_NONNULL_BEGIN
  *   animation.timingFunction = curve;
  *   animation.toValue = @20;
  *   [mapView_.layer addAnimation:animation forKey:kGMSLayerCameraBearingKey];
+ * </pre>
  *
- * To control several implicit animations, Core Animation's transaction support may be used, e.g.-
+ * To control several implicit animations, Core Animation's transaction support may be used, for
+ * example:
+ * <pre>
  *   [CATransaction begin];
  *   [CATransaction setAnimationDuration:2.0f];
  *   mapView_.layer.cameraBearing = 20;
  *   mapView_.layer.cameraViewingAngle = 30;
  *   [CATransaction commit];
+ * </pre>
  *
  * Note that these properties are not view-based. Please see "Animating View and Layer Changes
- * Together" in the View Programming Guide for iOS-
- *   http://developer.apple.com/library/ios/#documentation/windowsviews/conceptual/viewpg_iphoneos/AnimatingViews/AnimatingViews.html
+ * Together" in the <a href="http://developer.apple.com/library/ios/#documentation/windowsviews/conceptual/viewpg_iphoneos/AnimatingViews/AnimatingViews.html">
+ * View Programming Guide for iOS</a>.
  */
 
 /**
  * kGMSLayerCameraLatitudeKey ranges from [-85, 85], and values outside this range will be clamped.
+ *
+ * @related GMSMapLayer
  */
 extern NSString *const kGMSLayerCameraLatitudeKey;
 
 /**
  * kGMSLayerCameraLongitudeKey ranges from [-180, 180), and values outside this range will be
  * wrapped to within this range.
+ *
+ * @related GMSMapLayer
  */
 extern NSString *const kGMSLayerCameraLongitudeKey;
 
 /**
  * kGMSLayerCameraBearingKey ranges from [0, 360), and values are wrapped.
+ *
+ * @related GMSMapLayer
  */
 extern NSString *const kGMSLayerCameraBearingKey;
 
 /**
  * kGMSLayerCameraZoomLevelKey ranges from [kGMSMinZoomLevel, kGMSMaxZoomLevel], and values are
  * clamped.
+ *
+ * @related GMSMapLayer
  */
 extern NSString *const kGMSLayerCameraZoomLevelKey;
 
 /**
  * kGMSLayerCameraViewingAngleKey ranges from zero (i.e., facing straight down) and to between 30
  * and 45 degrees towards the horizon, depending on the model zoom level.
+ *
+ * @related GMSMapLayer
  */
 extern NSString *const kGMSLayerCameraViewingAngleKey;
 
@@ -92,4 +107,4 @@ extern NSString *const kGMSLayerCameraViewingAngleKey;
 @property(nonatomic, assign) double cameraViewingAngle;
 @end
 
-NS_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END;

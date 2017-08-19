@@ -10,19 +10,27 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-#import <GoogleMaps/GMSAddress.h>
+#import "GMSAddress.h"
 
-NS_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN;
 
 @class GMSReverseGeocodeResponse;
 
-/** GMSGeocoder error codes, embedded in NSError. */
+/**
+ * GMSGeocoder error codes, embedded in NSError.
+ *
+ * @related GMSGeocoder
+ */
 typedef NS_ENUM(NSInteger, GMSGeocoderErrorCode) {
   kGMSGeocoderErrorInvalidCoordinate = 1,
   kGMSGeocoderErrorInternal,
 };
 
-/** Handler that reports a reverse geocoding response, or error. */
+/**
+ * Handler that reports a reverse geocoding response, or error.
+ *
+ * @related GMSGeocoder
+ */
 typedef void (^GMSReverseGeocodeCallback)(GMSReverseGeocodeResponse *_Nullable,
                                           NSError *_Nullable);
 
@@ -58,4 +66,4 @@ typedef void (^GMSReverseGeocodeCallback)(GMSReverseGeocodeResponse *_Nullable,
 
 @end
 
-NS_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END;

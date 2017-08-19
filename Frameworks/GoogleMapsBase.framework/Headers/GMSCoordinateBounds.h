@@ -10,7 +10,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-NS_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN;
 
 /**
  * GMSCoordinateBounds represents a rectangular bounding box on the Earth's surface.
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  * When an invalid bounds is expanded with valid coordinates via includingCoordinate: or
  * includingBounds:, the resulting bounds will be valid but contain only the new coordinates.
  */
-@property(readonly, getter=isValid) BOOL valid;
+@property(nonatomic, readonly, getter=isValid) BOOL valid;
 
 /**
  * Inits the northEast and southWest bounds corresponding to the rectangular region defined by the
@@ -72,4 +72,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END;

@@ -11,7 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <QuartzCore/QuartzCore.h>
 
-NS_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN;
 
 /**
  * GMSMarkerLayer is a custom subclass of CALayer, available on a per-marker basis, that allows
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) CLLocationDegrees rotation;
 
 /** Opacity, as per GMSMarker. */
-@property float opacity;
+@property(atomic, assign) float opacity;
 
 @end
 
@@ -42,4 +42,4 @@ extern NSString *const kGMSMarkerLayerLongitude;
 extern NSString *const kGMSMarkerLayerRotation;
 extern NSString *const kGMSMarkerLayerOpacity;
 
-NS_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END;

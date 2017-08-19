@@ -16,9 +16,13 @@
 #else
 #import <GoogleMapsBase/GoogleMapsBase.h>
 #endif
-#import <GoogleMaps/GMSDeprecationMacros.h>
-#import <GoogleMaps/GMSMapLayer.h>
-#import <GoogleMaps/GMSUISettings.h>
+#if __has_feature(modules)
+@import GoogleMapsBase;
+#else
+#import <GoogleMapsBase/GoogleMapsBase.h>
+#endif
+#import "GMSMapLayer.h"
+#import "GMSUISettings.h"
 
 @class GMSCameraPosition;
 @class GMSCameraUpdate;
@@ -31,7 +35,7 @@
 @class GMSOverlay;
 @class GMSProjection;
 
-NS_ASSUME_NONNULL_BEGIN
+NS_ASSUME_NONNULL_BEGIN;
 
 /** Delegate for events on GMSMapView. */
 @protocol GMSMapViewDelegate<NSObject>
@@ -107,7 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)mapView:(GMSMapView *)mapView didTapOverlay:(GMSOverlay *)overlay;
 
 /**
- *  Called after a POI has been tapped.
+ * Called after a POI has been tapped.
  *
  * @param mapView The map view that was tapped.
  * @param placeID The placeID of the POI that was tapped.
@@ -199,6 +203,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Display types for GMSMapView.
+ *
+ * @related GMSMapView
  */
 typedef NS_ENUM(NSUInteger, GMSMapViewType) {
   /** Basic maps.  The default. */
@@ -220,6 +226,8 @@ typedef NS_ENUM(NSUInteger, GMSMapViewType) {
 
 /**
  * Rendering frame rates for GMSMapView.
+ *
+ * @related GMSMapView
  */
 typedef NS_ENUM(NSUInteger, GMSFrameRate) {
   /** Use the minimum frame rate to conserve battery usage. */
@@ -390,17 +398,15 @@ typedef NS_ENUM(NSUInteger, GMSFrameRate) {
 
 /**
  * Tells this map to power up its renderer. This is optional and idempotent.
- *
- * This method is obsolete and deprecated and will be removed in a future release.
  */
-- (void)startRendering __GMS_AVAILABLE_BUT_DEPRECATED;
+- (void)startRendering __GMS_AVAILABLE_BUT_DEPRECATED_MSG(
+    "This method is obsolete and will be removed in a future release.");
 
 /**
  * Tells this map to power down its renderer. This is optional and idempotent.
- *
- * This method is obsolete and deprecated and will be removed in a future release.
  */
-- (void)stopRendering __GMS_AVAILABLE_BUT_DEPRECATED;
+- (void)stopRendering __GMS_AVAILABLE_BUT_DEPRECATED_MSG(
+    "This method is obsolete and will be removed in a future release.");
 
 /**
  * Clears all markup that has been added to the map, including markers, polylines and ground
@@ -440,12 +446,16 @@ typedef NS_ENUM(NSUInteger, GMSFrameRate) {
 
 /**
  * Accessibility identifier for the compass button.
+ *
+ * @related GMSMapView
  */
 extern NSString *const kGMSAccessibilityCompass;
 
 /**
  * Accessibility identifier for the "my location" button.
+ *
+ * @related GMSMapView
  */
 extern NSString *const kGMSAccessibilityMyLocation;
 
-NS_ASSUME_NONNULL_END
+NS_ASSUME_NONNULL_END;
