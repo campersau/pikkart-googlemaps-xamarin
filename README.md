@@ -1,9 +1,7 @@
-The Pikkart and Xamarin.Google.iOS.Maps do not work together.
+Pikkart and Google Maps C# bindings working together
+----------------------------------------------------
 
-This is the error message:
-
-```
-1>  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang  -framework UIKit -framework Foundation -framework CoreLocation -framework QuartzCore -framework CoreGraphics -framework CloudKit -framework Accelerate -framework GLKit -framework ImageIO -framework OpenGLES -framework CoreText -framework Security -framework CoreData -framework SystemConfiguration -weak_framework CFNetwork /obj/iPhone/Debug/mtouch-cache/armv7/registrar.o /obj/iPhone/Debug/mtouch-cache/armv7/main.o /obj/iPhone/Debug/mtouch-cache/armv7/PikkartGoogleMaps.exe.o /obj/iPhone/Debug/mtouch-cache/armv7/mscorlib.dll.o /obj/iPhone/Debug/mtouch-cache/armv7/Xamarin.iOS.dll.o /obj/iPhone/Debug/mtouch-cache/armv7/Google.Maps.dll.o /obj/iPhone/Debug/mtouch-cache/armv7/Pikkart.ArSdk.Geo.dll.o /obj/iPhone/Debug/mtouch-cache/GoogleMaps /obj/iPhone/Debug/mtouch-cache/GoogleMapsCore /obj/iPhone/Debug/mtouch-cache/GoogleMapsBase /obj/iPhone/Debug/mtouch-cache/GooglePlaces /obj/iPhone/Debug/mtouch-cache/GooglePlacePicker /obj/iPhone/Debug/mtouch-cache/pikkartARGeo /Library/Frameworks/Xamarin.iOS.framework/Versions/10.12.0.18/SDKs/MonoTouch.iphoneos.sdk/usr/lib/libmonosgen-2.0.a /Library/Frameworks/Xamarin.iOS.framework/Versions/10.12.0.18/SDKs/MonoTouch.iphoneos.sdk/usr/lib/libxamarin-debug.a -force_load /Library/Frameworks/Xamarin.iOS.framework/Versions/10.12.0.18/SDKs/MonoTouch.iphoneos.sdk/usr/lib/libapp.a -ObjC -ObjC -lz -lc++ -Wl,-pie -arch armv7 -miphoneos-version-min=10.3 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk -lz -liconv -o /obj/iPhone/Debug/mtouch-cache/32/Output/PikkartGoogleMaps -u _UIApplicationMain -u _xamarin_get_block_descriptor -u _kGMSAccessibilityCompass -u _kGMSAccessibilityMyLocation -u _kGMSAutocompleteMatchAttribute -u _kGMSEquatorProjectedMeter -u _kGMSLayerCameraBearingKey -u _kGMSLayerCameraLatitudeKey -u _kGMSLayerCameraLongitudeKey -u _kGMSLayerCameraViewingAngleKey -u _kGMSLayerCameraZoomLevelKey -u _kGMSLayerPanoramaFOVKey -u _kGMSLayerPanoramaHeadingKey -u _kGMSLayerPanoramaPitchKey -u _kGMSLayerPanoramaZoomKey -u _kGMSMarkerLayerLatitude -u _kGMSMarkerLayerLongitude -u _kGMSMarkerLayerRotation -u _kGMSMaxZoomLevel -u _kGMSMinZoomLevel -u _kGMSPlacePickerErrorDomain -u _kGMSPlacesErrorDomain -u _kGMSGroundOverlayDefaultAnchor -u _kGMSMarkerDefaultGroundAnchor -u _kGMSMarkerDefaultInfoWindowAnchor -u _kGMSTileLayerNoTile -u _mono_pmip
-1>  ld: framework not found GoogleMaps for architecture armv7
-1>  clang: error: linker command failed with exit code 1 (use -v to see invocation)
-```
+- Add `Xamarin.Google.iOS.Maps` NuGet package
+- Add `Pikkart.ArSdk` NuGet package
+- Add Google Maps Frameworks (see also `GoogleMapsFramework.props`)
+- Add `MtouchExtraArgs`
